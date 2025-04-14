@@ -1,0 +1,92 @@
+Tabellenname;Spaltenname;Spaltentyp;Zeichenlaenge;PK;FK;AI;NN;Beschreibung
+Dim_Customer;Customer_ID;INTEGER;;PK;;AI;NN;Unique system identification of the customer
+Dim_Customer;customer_loyalty_status_ID;INTEGER;;;FK;;;ID of the cusotmer's loyalty status
+Dim_Customer;customer_name;VARCHAR;60;;;;;Name of the customer
+Dim_Customer;customer_email;VARCHAR;60;;;;;E-Mail of the customer
+Dim_Customer;Date from;DATE;;;;;;Date of a customer's first entry
+Dim_Customer;Date to;DATE;;;;;;Date of a customer's change
+Dim_Product;Product_ID;INTEGER;;PK;;AI;NN;Unique system identification of the product
+Dim_Product;Product_category_ID;INTEGER;;;FK;;;ID of the product category
+Dim_Product;Product_subcategory_ID;INTEGER;;;FK;;;ID of the product subcategory
+Dim_Product;Product_brand_ID;INTEGER;;;FK;;;ID of the product brand
+Dim_Product;Product_department_ID;INTEGER;;;FK;;;ID of the product department
+Dim_Product;Product_name;VARCHAR;60;;;;;Name of the product
+Dim_Product;Date from;DATE;;;;;;Date of a product's first entry
+Dim_Product;Date to;DATE;;;;;;Date of a product's change
+Dim_Sales Staff;Sales_staff_ID;INTEGER;;PK;;AI;NN;Unique system identification of the sales staff
+Dim_Sales Staff;Sales_staff_name;VARCHAR;60;;;;;Name of the sales staff
+Dim_Sales Staff;Date from;DATE;;;;;;Date of a sales staff's first entry
+Dim_Sales Staff;Date to;DATE;;;;;;Date of a sales staff's change
+Dim_Promotion;Promotion_ID;INTEGER;;PK;;AI;NN;Unique system identification of the promotion
+Dim_Promotion;Promotion_name;VARCHAR;60;;;;;Name of the promotion
+Dim_Promotion;Date from;DATE;;;;;;Date of a promotion's first entry
+Dim_Promotion;Date to;DATE;;;;;;Date of a promotion's change
+Dim_Store;Store_ID;INTEGER;;PK;;AI;NN;Unique system identification of the store
+Dim_Store;District_ID;INTEGER;;;FK;;;ID of the district
+Dim_Store;Store_location_ID;INTEGER;;;FK;;;ID of the store location
+Dim_Store;Store_type_ID;INTEGER;;;FK;;;ID of the store type
+Dim_Store;Store_name;VARCHAR;60;;;;;Name of the store
+Dim_Store;Store_size_sqm;INTEGER;;;;;;Size of the store
+Dim_Store;Date from;DATE;;;;;;Date of a store's first entry
+Dim_Store;Date to;DATE;;;;;;Date of a store's change
+Dim_Supplier;Supplier_ID;INTEGER;;PK;;AI;NN;Unique system identification of the supplier
+Dim_Supplier;Supplier_name;VARCHAR;60;;;;;Name of the supplier
+Dim_Supplier;Date from;DATE;;;;;;Date of a supplier's first entry
+Dim_Supplier;Date to;DATE;;;;;;Date of a supplier's change
+Facts_Transaction;Transaction_ID;INTEGER;;PK;;AI;NN;Unique system identification of the transaction
+Facts_Transaction;Supplier_ID;INTEGER;;;FK;;;ID of the supplier
+Facts_Transaction;Product_ID;INTEGER;;;FK;;;ID of the product
+Facts_Transaction;Store_ID;INTEGER;;;FK;;;ID of the store
+Facts_Transaction;Customer_ID;INTEGER;;;FK;;;ID of the customer
+Facts_Transaction;Sales_Staff_ID;INTEGER;;;FK;;;ID of the sales staff
+Facts_Transaction;Promotion_ID;INTEGER;;;FK;;;ID of the promotion
+Facts_Transaction;Payment_method_ID;INTEGER;;;FK;;;ID of the payment method
+Facts_Transaction;Invoice_number;VARCHAR;15;;;;;Invoice number related to the transaction
+Facts_Transaction;Transaction_date;DATE;;;;;;Date the transaction was placed
+Facts_Transaction;Transaction_time;VARCHAR;15;;;;;Time the transaction was placed
+Facts_Transaction;Transaction_status;VARCHAR;15;;;;;Current status of the transaction
+Facts_Transaction;quantity;DECIMAL;10,2;;;;;The quantity of the ordered product
+Facts_Transaction;unit_price;DECIMAL;10,2;;;;;Unit price of the product without taxes
+Facts_Transaction;base_price;DECIMAL;10,2;;;;;Base price including taxes
+Facts_Transaction;discount_rate;DECIMAL;4,2;;;;;Applied discount rate to the total amount
+Facts_Transaction;discount_applied;VARCHAR;15;;;;;Definition if discount was applied to the transaction
+Facts_Transaction;total_amount;DECIMAL;10,2;;;;;Total amount of the transaction after discount was applied
+Facts_Transaction;tax_rate;DECIMAL;4,2;;;;;Tax rate based on the bought product
+Facts_Transaction;tax_amount;DECIMAL;10,2;;;;;Tax amount based on the total amount of the transaction
+Dim_District;District_ID;INTEGER;;PK;;AI;NN;Unique system identification of the district
+Dim_District;District_name;VARCHAR;60;;;;;Name of the district the store is located in
+Dim_District;Postal_code;VARCHAR;15;;;;;Postal Code of the district
+Dim_District;Date from;DATE;;;;;;Date of a district's first entry
+Dim_District;Date to;DATE;;;;;;Date of a district's change
+Dim_Product_category;Product_category_ID;INTEGER;;PK;;AI;NN;Unique system identification of the product category
+Dim_Product_category;Product_category_name;VARCHAR;60;;;;;Name of the product's category
+Dim_Product_category;Date from;DATE;;;;;;Date of a product category's first entry
+Dim_Product_category;Date to;DATE;;;;;;Date of a product category's change
+Dim_Product_subcategory;Product_subcategory_ID;INTEGER;;PK;;AI;NN;Unique system identification of the product subcategory
+Dim_Product_subcategory;Product_subcategory_name;VARCHAR;60;;;;;Name of the product's subcategory
+Dim_Product_subcategory;Date from;DATE;;;;;;Date of a product subcategory's first entry
+Dim_Product_subcategory;Date to;DATE;;;;;;Date of a product subcategory's change
+Dim_Product_brand;Product_brand_ID;INTEGER;;PK;;AI;NN;Unique system identification of the product brand
+Dim_Product_brand;Product_brand_name;VARCHAR;60;;;;;Name of the product's brand
+Dim_Product_brand;Date from;DATE;;;;;;Date of a product brand's first entry
+Dim_Product_brand;Date to;DATE;;;;;;Date of a product brand's change
+Dim_Product_department;Product_department_ID;INTEGER;;PK;;AI;NN;Unique system identification of the product department
+Dim_Product_department;Product_department_name;VARCHAR;60;;;;;Name of the product's department
+Dim_Product_department;Date from;DATE;;;;;;Date of a product department's first entry
+Dim_Product_department;Date to;DATE;;;;;;Date of a product department's change
+Dim_Store_location;Store_location_ID;INTEGER;;PK;;AI;NN;Unique system identification of the store location
+Dim_Store_location;Store_location_name;VARCHAR;60;;;;;Address of the store
+Dim_Store_location;Date from;DATE;;;;;;Date of a store location's first entry
+Dim_Store_location;Date to;DATE;;;;;;Date of a store location's change
+Dim_Store_type;Store_type_ID;INTEGER;;PK;;AI;NN;Unique system identification of the store type
+Dim_Store_type;Store_type_name;VARCHAR;60;;;;;Type of the store
+Dim_Store_type;Date from;DATE;;;;;;Date of a store type's first entry
+Dim_Store_type;Date to;DATE;;;;;;Date of a store type's change
+Dim_Customer_loyalty_status;Customer_loyalty_status_ID;INTEGER;;PK;;AI;NN;Unique system identification of the customer's loyalty status
+Dim_Customer_loyalty_status;customer_loyalty_status_name;VARCHAR;15;;;;;Loyalty status of the customer
+Dim_Customer_loyalty_status;Date from;DATE;;;;;;Date of a customer's loyalty status first entry
+Dim_Customer_loyalty_status;Date to;DATE;;;;;;Date of a customer's loyalty status change
+Dim_Payment_method;Payment_method_ID;INTEGER;;PK;;AI;NN;Unique system identification of the payment method
+Dim_Payment_method;Payment_method_name;VARCHAR;15;;;;;Payment method used for the transaction
+Dim_Payment_method;Date from;DATE;;;;;;Date of a payment method's first entry
+Dim_Payment_method;Date to;DATE;;;;;;Date of a payment method's change
