@@ -3,7 +3,7 @@ from icecream import ic
 
 def write_sqlcreate_for_table(table: pd.DataFrame, fk_dict: dict):
     """Writes SQL Create statement for one table."""
-    table_name = table.Tablename.unique()[0]
+    table_name = table.Tabellenname.unique()[0]
     create_statement = f'-- Tabelle {table_name} erstellen.\n'
     create_statement += f'DROP TABLE IF EXISTS {table_name};\n'
     create_statement += f'CREATE TABLE {table_name} (\n'
@@ -34,7 +34,7 @@ def write_sqlcreate_for_table(table: pd.DataFrame, fk_dict: dict):
 
 def get_primary_table_for_FK(data_dict: pd.DataFrame, FK_name: str) -> str:
     """Returns primary table for given FK. If no table is found raises error."""
-    prim_table = data_dict.loc[(data_dict.Spaltenname == FK_name) & (data_dict.PK == 'PK') & (data_dict.FK != 'FK') , 'Tablename']
+    prim_table = data_dict.loc[(data_dict.Spaltenname == FK_name) & (data_dict.PK == 'PK') & (data_dict.FK != 'FK') , 'Tabellenname']
     if len(prim_table.values) != 1:
         ic(f'Check FK  - PK naming for {FK_name}. {len(prim_table.values)}')
     return prim_table.values[0] 
@@ -52,8 +52,8 @@ def write_create_table_statements(data_dict: pd.DataFrame, dd_name: str):
     """Writes all create table statements to sql file."""
     fk_dict = build_FK_dict(data_dict)
     with open(f"create_tables_{dd_name}.sql", 'w') as w_file:
-        for t_name in data_dict.Tablename.unique():
-            table_df = data_dict.loc[data_dict.Tablename == t_name]
+        for t_name in data_dict.Tabellenname.unique():
+            table_df = data_dict.loc[data_dict.Tabellenname == t_name]
             w_file.write(write_sqlcreate_for_table(table_df, fk_dict ))
 
 def main():
@@ -62,6 +62,6 @@ def main():
 if __name__=='__main__':
     datadict_path = 'Spielwarenläden_v2.csv' # Name vom Datadict
     dd_name = datadict_path.split('/')[-1][:-4]
-    data_dict = pd.read_csv(datadict_path)
+    data_dict = pd.read_csv(datadict_path, sep=';')
     write_create_table_statements(data_dict, dd_name)
     main()
