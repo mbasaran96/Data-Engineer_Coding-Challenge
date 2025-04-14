@@ -1,0 +1,46 @@
+Tabellenname;Spaltenname;Spaltentyp;Zeichenlaenge;PK;FK;AI;NN;Beschreibung
+Dim_Customer;Customer_ID;INTEGER;;PK;;AI;NN;Unique system identification of the customer
+Dim_Customer;customer_name;VARCHAR;60;;;;;Name of the customer
+Dim_Customer;customer_email;VARCHAR;60;;;;;E-Mail of the customer
+Dim_Customer;customer_loyalty_status;VARCHAR;15;;;;;Loyalty status of the customer
+Dim_Product;Product_ID;INTEGER;;PK;;AI;NN;Unique system identification of the product
+Dim_Product;Product_name;VARCHAR;60;;;;;Name of the product
+Dim_Product;Product_category;VARCHAR;60;;;;;Name of the product's category
+Dim_Product;Product_subcategory;VARCHAR;60;;;;;Name of the product's subcategory
+Dim_Product;Product_brand;VARCHAR;60;;;;;Name of the product's brand
+Dim_Product;Product_department;VARCHAR;60;;;;;Name of the product's department
+Dim_Sales Staff;Sales_staff_ID;INTEGER;;PK;;AI;NN;Unique system identification of the sales staff
+Dim_Sales Staff;Sales_staff_name;VARCHAR;60;;;;;Name of the sales staff
+Dim_Promotion;Promotion_ID;INTEGER;;PK;;AI;NN;Unique system identification of the promotion
+Dim_Promotion;Promotion_name;VARCHAR;60;;;;;Name of the promotion
+Dim_Store;Store_ID;INTEGER;;PK;;AI;NN;Unique system identification  of the store
+Dim_Store;District_ID;INTEGER;;;FK;;;ID of the district
+Dim_Store;Store_name;VARCHAR;60;;;;;Name of the store
+Dim_Store;Store_location;VARCHAR;60;;;;;Address of the store
+Dim_Store;Store_type;VARCHAR;60;;;;;Type of the store
+Dim_Store;Store_size_sqm;INTEGER;;;;;;Size of the store
+Dim_Supplier;Supplier_ID;INTEGER;;PK;;AI;NN;Unique system identification of the supplier
+Dim_Supplier;Supplier_name;VARCHAR;60;;;;;Name of the supplier
+Facts_Transaction;Transaction_ID;INTEGER;;PK;;AI;NN;Unique system identification of the transaction
+Facts_Transaction;Supplier_ID;INTEGER;;;FK;;;ID of the supplier
+Facts_Transaction;Product_ID;INTEGER;;;FK;;;ID of the product
+Facts_Transaction;Store_ID;INTEGER;;;FK;;;ID of the store
+Facts_Transaction;Customer_ID;INTEGER;;;FK;;;ID of the customer
+Facts_Transaction;Sales_staff_ID;INTEGER;;;FK;;;ID of the sales staff
+Facts_Transaction;Promotion_ID;INTEGER;;;FK;;;ID of the promotion
+Facts_Transaction;Invoice_number;VARCHAR;15;;;;;Invoice number related to the transaction
+Facts_Transaction;Transaction_date;DATE;;;;;;Date the transaction was placed
+Facts_Transaction;Transaction_time;VARCHAR;15;;;;;Time the transaction was placed
+Facts_Transaction;Transaction_status;VARCHAR;15;;;;;Current status of the transaction
+Facts_Transaction;quantity;DECIMAL;10,2;;;;;The quantity of the ordered product
+Facts_Transaction;unit_price;DECIMAL;10,2;;;;;Unit price of the product without taxes
+Facts_Transaction;base_price;DECIMAL;10,2;;;;;Base price including taxes
+Facts_Transaction;discount_rate;DECIMAL;4,2;;;;;Applied discount rate to the total amount
+Facts_Transaction;discount_applied;VARCHAR;15;;;;;Definition if discount was applied to the transaction
+Facts_Transaction;total_amount;DECIMAL;10,2;;;;;Total amount of the transaction after discount was applied
+Facts_Transaction;tax_rate;DECIMAL;4,2;;;;;Tax rate based on the bought product
+Facts_Transaction;tax_amount;DECIMAL;10,2;;;;;Tax amount based on the total amount of the transaction
+Facts_Transaction;payment_method;VARCHAR;15;;;;;Payment method used for the transaction
+Dim_District;District_ID;INTEGER;;PK;;AI;NN;Unique system identification of the district
+Dim_District;District_name;VARCHAR;60;;;;;Name of the district the store is located in
+Dim_District;Postal_code;VARCHAR;15;;;;;Postal Code of the district
