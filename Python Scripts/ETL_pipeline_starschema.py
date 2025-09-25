@@ -12,7 +12,7 @@ import pandas as pd
 import sqlite3
 import os
 
-
+# just a test comment
 
 # === PARAMETER ===
 CSV_PATH = "munich_sales_cleaned.csv"
